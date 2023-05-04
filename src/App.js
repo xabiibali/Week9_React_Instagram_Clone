@@ -10,18 +10,31 @@
   File-kasta fiiri si aad u ogaato PROPS-ka uu doonaayo.
 */
 
-import React from 'react';
+import React, { useState } from 'react';
+import Posts from './components/Posts/Posts';
+import PostHeader from './components/Posts/PostHeader';
+import SearchBar from './components/SearchBar/SearchBar';
+
+
 // Import the Posts (plural!) and SearchBar components, since they are used inside App component
 // Soo jiido Posts iyo SearchBar components-ka
 
 
+
 // Import the dummyData
+import dummyData from './dummy-data';
+
 // Soo jiido dummyData
 
 
+
 import './App.css';
+import Post from './components/Posts/Post';
 
 const App = () => {
+    let [posts,setPosts] =  React.useState(dummyData);
+    console.log("mypost",posts)
+
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
   // Waxaa sameysaa state la dhaho 'posts' si aad ugu keydisid wixii dummyData ka imaanaayo.
 
@@ -32,6 +45,10 @@ const App = () => {
     <div className='App'>
       {/* Add SearchBar and Posts here to render them */}
       {/* Soo jiido SearchBar iyo Posts components-ka hoos, si aad u muujiyo */}
+      <SearchBar post ={posts}/>
+   <Posts post = {posts}/>
+
+      <PostHeader post = {posts}/>
 
 
       {/* Check the implementation of each component, to see what props they require, if any! */}
